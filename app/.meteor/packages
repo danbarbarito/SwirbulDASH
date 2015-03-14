@@ -9,10 +9,11 @@ autopublish
 insecure
 iron:router
 jquery
-ecwyne:polymer-elements
 numtel:webcomponent
 meteorhacks:npm
 
 
 npm-container
 matteodem:easy-search
+mrt:foundation-5
+http

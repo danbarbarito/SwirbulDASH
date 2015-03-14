@@ -2,25 +2,16 @@
 /* Home: Event Handlers */
 /*****************************************************************************/
 Template.Home.events({
-  "submit .book-search": function (event) {
-    // This function is called when a book is searched for
+  "keypress .book-search": function (event) {
 
-    var text = event.target.text.value;
-
-    Books.insert({
-      title: text,
-      createdAt: new Date() // current time
-    });
-
-    // Clear form
-    event.target.text.value = "";
-
-    // Prevent default form submit
-    return false;
   },
   'click .result': function (event) {
-    var bookID = event.currentTarget.id;
-    $('.info').html('<h3>' + bookID + "</h3>");
+    $('.info').html('<h1>Location of ' + this.title + '</h1><h3>' + this._id + "</h3>");
+  },
+  'click .button': function (event) {
+    Meteor.call("parseQuery", $('.input').val(), function(error, result) {
+      console.log(result);
+    });
   }
 
 });
