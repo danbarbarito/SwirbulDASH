@@ -17,9 +17,8 @@ Template.Home.events({
 
     // Prevent default form submit
     return false;
-  },
-  'click #test': function(event){
-    
+  }
+
 });
 
 /*****************************************************************************/

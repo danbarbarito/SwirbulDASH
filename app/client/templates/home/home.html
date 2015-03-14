@@ -1,14 +1,18 @@
 <template name="Home">
-  <h1>Hackathon Dream Team</h1>
-  <form class="book-search">
-    <input class="book-input" type="text" name="text" placeholder="Biology for Dummies" />
-  </form>
-  <ul>
-  {{#each books}}
-    <li>
-    {{title}}
-    </li>
-  {{/each}}
-  </ul>
-  <button id="test">Test</button>
+  <div class="wrapper">
+    <div class="title">
+      <h1>Hackathon Dream Team</h1>
+    </div>
+    <form class="book-search">
+      {{> esInput index="books" placeholder="Biology for Dummies..." }}
+    </form>
+    <div class="result-wrapper">
+      <ul>
+        {{#esEach index="books"}}
+            <li>Name of Book: {{title}}</li>
+        {{/esEach}}
+      </ul>
+    </div>
+  </div>
+
 </template>

@@ -3,6 +3,7 @@
 
 .wrapper {
   padding-top: 40px;
+  margin: 0 auto;
 }
 
 .title {
@@ -11,4 +12,14 @@
 
 .book-input {
   width: 80%;
+}
+
+.result-wrapper {
+  margin: 0 auto;
+}
+
+.result {
+  width: 70px;
+  height: 80px;
+  background-color: pink;
 }
