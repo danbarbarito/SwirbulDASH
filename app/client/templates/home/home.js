@@ -2,13 +2,20 @@
 /* Home: Event Handlers */
 /*****************************************************************************/
 Template.Home.events({
-  "keypress .book-search": function (event) {
-
-  },
+  // "keypress .book-search": function (event) {
+  //   Meteor.call("parseQuery", $('.input').val(), function(error, result) {
+  //
+  //   });
+  // },
   'click .result': function (event) {
-    $('.info').html('<h1>Location of ' + this.title + '</h1><h3>' + this._id + "</h3>");
+    Meteor.call("parseBook", this.url, function(error, result) {
+       var callback = result.match(/[A-Z]+([0-9{3}])/)
+      $('.info').html('<h1>Location of ' + this.title + '</h1><h3>' + result + "</h3>");
+    });
   },
-  'click .button': function (event) {
+  'keypress .book-search': function (event) {
+    //Remove books
+    Meteor.call('removeAllBooks');
     Meteor.call("parseQuery", $('.input').val(), function(error, result) {
 
     });
@@ -21,7 +28,7 @@ Template.Home.events({
 /*****************************************************************************/
 Template.Home.helpers({
   books: function(){
-    return Books.find({});
+    return Books.find({},{sort: {createdAt: -1}});
   }
 });
 

@@ -6,7 +6,7 @@ var request = Meteor.npmRequire('request');
 var parsedResults = [];
 var titles = [];
 var urls = [];
-
+var code;
 Meteor.methods({
     parseQuery: function (term) {
       request('http://alicat.adelphi.edu/search/?searchtype=X&SORT=D&searcharg=' + encodeURIComponent(term) + '&searchscope=1', function (error, response, html) {
@@ -32,11 +32,25 @@ Meteor.methods({
             var url = $(this).attr('href');
             urls.push(url);
           });
-
-
         };})
+        
         // Insert results
         for (index = 0; index < titles.length; ++index){
           Books.insert({title: titles[index], url: urls[index], createdAt: new Date()});
         }
-        return titles;}});
+        return titles;
+      }
+    }
+  );
+Meteor.methods({
+  parseBook: function (url) {
+        request('http://alicat.adelphi.edu' + url, function (error, response, html) {
+          if (!error && response.statusCode == 200) {
+            var $ = cheerio.load(html);
+            code = $('td.bibInfoData').text();
+          }
+      });
+        return code;
+    }
+  }
+);
