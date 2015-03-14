@@ -10,7 +10,7 @@ Template.Home.events({
   },
   'click .button': function (event) {
     Meteor.call("parseQuery", $('.input').val(), function(error, result) {
-      console.log(result);
+
     });
   }
 

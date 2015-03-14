@@ -1,18 +1,17 @@
 <template name="Home">
   <div class="content">
           <form class="book-search">
-            {{> esInput class="input" index="books" placeholder="Biology for Dummies" }}
+            <input class="input" placeholder="Biology for Dummies" />
           </form>
           <div class="result-wrapper">
-              <!-- {{#esEach index="books"}}
+              {{#each books}}
               <div class="result">
                   {{title}}
               </div>
-              {{/esEach}} -->
+              {{/each}}
           </div>
           <div class="info">
           </div>
-          <button class="button">Click Me</button>
   </div>
 
 </template>

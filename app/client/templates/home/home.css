@@ -75,5 +75,6 @@ input {
 }
 
 .result-wrapper {
+  height: 300px;
   overflow-y: scroll;
 }
