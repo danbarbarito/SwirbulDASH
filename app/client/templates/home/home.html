@@ -7,11 +7,14 @@
       {{> esInput index="books" placeholder="Biology for Dummies..." }}
     </form>
     <div class="result-wrapper">
-      <ul>
         {{#esEach index="books"}}
-            <li>Name of Book: {{title}}</li>
+        <div class="result">
+            {{title}}
+        </div>
         {{/esEach}}
-      </ul>
+    </div>
+    <div class="info">
+      
     </div>
   </div>
 

@@ -17,6 +17,10 @@ Template.Home.events({
 
     // Prevent default form submit
     return false;
+  },
+  'click .result': function (event) {
+    var bookID = event.currentTarget.id;
+    $('.info').html('<h3>' + bookID + "</h3>");
   }
 
 });
